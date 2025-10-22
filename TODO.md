@@ -1,3 +1,4 @@
+## Completed Tasks
 - [x] Overwrite index.html with fresh WebXR setup: basic HTML, Three.js scripts, button to start XR, script for canvas, WebGL context, scene with background color, camera, renderer, immersive-ar session, render loop.
 - [x] Test the setup: Run local server and use browser to verify XR starts, scene renders with background, camera in WebGL mode.
 - [x] Add a 3D object (e.g., cube) to the scene for visibility in AR.
@@ -6,15 +7,20 @@
 - [x] Test camera access and preview.
 - [x] Integrate camera feed as texture inside the WebXR scene (e.g., on the cube). (Note: May not work in all browsers due to WebXR limitations; requires WebXR-supported browser like Chrome/Edge with AR capabilities.)
 - [x] Test the camera texture in the AR scene. (Limited by browser support; functionality implemented but dependent on device/browser.)
+- [x] User Interface Enhancements: Add UI controls for object placement, scaling, and rotation in AR.
+- [x] Publish to GitHub Pages for easy testing on mobile devices.
 
 ## Milestones for Future Updates
 - **Enhanced 3D Objects**: Add more interactive 3D models (e.g., spheres, planes) with animations and user interactions.
 - **Improved Camera Integration**: Implement fallback for browsers without full WebXR video texture support, perhaps using canvas-based overlays.
 - **Performance Optimizations**: Optimize rendering for lower-end devices, add LOD (Level of Detail) for objects.
-- **User Interface Enhancements**: Add UI controls for object placement, scaling, and rotation in AR.
+- **Advanced Interactions**: Implement more advanced interactions with the 3D objects, such as grabbing and throwing.
+- **Image Tracking**: Add the ability to recognize images and anchor 3D objects to them.
+- **Plane Detection**: Improve the object placement by detecting horizontal and vertical planes in the environment.
 - **Cross-Platform Testing**: Test on various AR-capable devices (iOS Safari, Android Chrome) and add device-specific features.
 - **Audio Integration**: Add spatial audio to the AR scene for immersive experiences.
 - **Networking Features**: Enable multi-user AR sessions with real-time object sharing.
+- **Automate Deployment**: Automate the deployment process to GitHub Pages using GitHub Actions.
 
 ## Step-by-Step Instructions for GH CLI (GitHub CLI)
 1. **Install GH CLI**:
