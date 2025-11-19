@@ -1,24 +1,26 @@
 const express = require('express');
-const https = require('https');
-const selfsigned = require('selfsigned');
 const path = require('path');
+const { exec } = require('child_process');
 
 const app = express();
 const port = 8000;
-
-// Generate self-signed certificate
-const attrs = [{ name: 'commonName', value: 'localhost' }];
-const pems = selfsigned.generate(attrs, { days: 365, keySize: 2048 });
-
-const options = {
-  key: pems.private,
-  cert: pems.cert
-};
+const url = `http://localhost:${port}`;
 
 // Serve static files from the root directory
 app.use(express.static(path.join(__dirname)));
 
-// Create HTTPS server
-https.createServer(options, app).listen(port, () => {
-  console.log(`HTTPS server listening on https://localhost:${port}`);
+// Create HTTP server
+app.listen(port, () => {
+  console.log(`HTTP server listening on ${url}`);
+
+  // Auto-open browser
+  const command = process.platform === 'darwin' ? 'open' :
+    process.platform === 'win32' ? 'start' : 'xdg-open';
+  exec(`${command} ${url}`, (error) => {
+    if (error) {
+      console.log('Could not auto-open browser. Please open manually:', url);
+    } else {
+      console.log('Browser opened automatically!');
+    }
+  });
 });
